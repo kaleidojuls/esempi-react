@@ -4,11 +4,10 @@ import Button from './components/Button/Button';
 import PersonalisedText from './components/PersonalisedText/PersonalisedText';
 import Card from './components/Card/Card';
 import ButtonsGroup from './components/ButtonsGroup/ButtonsGroup';
-import Botton2 from './components/Button/Bottone2/Bottone2';
+import Bottone2 from './components/Bottone2/Bottone2';
 
 //useContext per creare una theme per i bottoni
-
-export const ButtonThemeContext = createContext("light");
+export const ButtonThemeContext = createContext();
 
 function App() {
 
@@ -43,7 +42,7 @@ function App() {
   //useEffect al cambio di uno stato
   let [riferimentoEffect, setRiferimentoEffect] = useState("Tick");
 
-  useEffect(() => console.log(`stato cambiato: ${numberState}`), [numberState]);
+  useEffect(() => console.log(`stato cambiato: ${riferimentoEffect}`), [riferimentoEffect]);
 
   const cambiaRiferimento = () => {
     riferimentoEffect === "Tick" ? setRiferimentoEffect("Tock") : setRiferimentoEffect("Tick");
@@ -57,14 +56,14 @@ function App() {
 
   return (
     <div className="App">
-      <h1>Esempi React</h1> {/*Elementi JSX semplici */}
+      <h1>Esempi React</h1> {/*Elementi JSX semplici*/}
       <h2>Le basi:</h2>
       <p>Benvenuto {name}!</p> {/*inserire variabili JS in JSX con le graffe*/}
       {name === "Pippo" && <p>Benvenuto solo se sei {name}!</p>} {/*inserire logiche JS in JSX*/}
 
       <h2>Componenti personalizzati:</h2>
       <Button />  {/*componente personalizzato senza prop */}
-      <Botton2 />
+      <Bottone2 />
 
       <PersonalisedText personalizzata={name}>Testo personalizzato di: </PersonalisedText>  {/*componente personalizzato con prop */}
       <Button btnOnClick={sayCiao}>ciao</Button> {/*elemento con funzione onclick */}
